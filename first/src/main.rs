@@ -14,7 +14,7 @@ fn count_calories(input: &String) -> Vec<i32> {
             chunk
                 .split("\n")
                 .map(|line| line.parse::<i32>().unwrap())
-                .sum::<i32>()
+                .sum()
         })
         .collect();
     calories.sort();

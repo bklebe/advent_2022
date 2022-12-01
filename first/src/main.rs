@@ -1,11 +1,11 @@
-use std::fs;
+use std::{fs, iter::Sum};
 
 fn main() {
     let input = fs::read_to_string("input.txt").expect("no input.txt found!");
     let calories = count_calories(&input);
-    let max = calories.last().unwrap();
+    let max = calories.first().unwrap();
     println!("{}", max);
-    let top3 = calories.iter().rev().take(3).sum::<i32>();
+    let top3 = calories[0..2].iter().sum::<i32>();
     println!("{}", top3);
 }
 
@@ -20,5 +20,6 @@ fn count_calories(input: &String) -> Vec<i32> {
         })
         .collect();
     calories.sort();
+    calories.reverse();
     calories
 }

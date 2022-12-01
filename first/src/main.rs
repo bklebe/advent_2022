@@ -1,7 +1,5 @@
-use std::{fs, iter::Sum};
-
 fn main() {
-    let input = fs::read_to_string("input.txt").expect("no input.txt found!");
+    let input = std::fs::read_to_string("input.txt").expect("no input.txt found!");
     let calories = count_calories(&input);
     let max = calories.first().unwrap();
     println!("{}", max);
